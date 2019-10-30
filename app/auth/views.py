@@ -40,3 +40,13 @@ def login():
 
     title = "Secrets login"
     return render_template('auth/login.html',login_form = login_form,title=title)
+
+
+@auth.route('/logout')
+@login_required
+def logout():
+    '''
+    Method to log out already logged in users
+    '''
+    logout_user()
+    return redirect(url_for("main.index"))
