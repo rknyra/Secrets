@@ -71,7 +71,7 @@ class Post(db.Model):
 
     @classmethod
     def get_posts(cls, id):
-        posts = Post.query.filter_by(type_id = id).all()
+        posts = Post.query.filter_by(category_id = id).all()
         return posts
     
     @classmethod
