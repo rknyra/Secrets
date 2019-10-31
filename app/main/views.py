@@ -18,4 +18,6 @@ def post():
 @main.route("/post/new", methods=['GET','POST'])
 def new_post():
     form= SecretForm()
+
     return render_template('new_secret.html',title='New post', form=form)
+

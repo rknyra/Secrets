@@ -1,8 +1,10 @@
+
 body{
     background-color: black;
     margin: 0;
     padding: 0;
     overflow: hidden;
+    font-size: 3vh;
 }
 .category{
     color:white;
@@ -25,8 +27,40 @@ body{
   /* mouse over link */
 .tag:hover {
   color: orange;
+
+.profileDiv{
+    background-color: #F5F5F5;
+    color: orangered;
+    border-radius: 7px;
+    margin-top: 14vh;
+    
 }
+.profPicSize {
+    object-fit: cover;
+    overflow: hidden;
+    display: block;
+  }
+  .profPicSize img{
+    max-width:100%;
+    max-height:100%;
+  }
+  .updateProf{
+      color: orangered;
+  }
+  .updateProf a{
+    /* color: orangered; */
+    color: #000;
+
+}
+  .profile input{
+    background-color: #000;
+    border-color: orangered;
+    color: #fff;
+    margin-top: 3vh;
+    border-radius: 12px;
+  }
   
+
   /* selected link */
 
 .SecretForm input[type=submit], input[type=text] , textarea[name=review] , input[type=submit]{
@@ -134,5 +168,3 @@ h1 span:nth-child(7){
 .navbar-dark .navbar-brand {
   color: orangered;
 }
-
- 
