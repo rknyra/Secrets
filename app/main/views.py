@@ -1,30 +1,25 @@
 from flask import render_template,redirect,url_for,request,abort
 from . import main
 
-@main.route('/')
-def index():
-    title = 'Home'
 
-
-    return render_template('index.html')
 
     #Tested upvote function 
 
-# @main.route('/upvote/<int:id>',methods=['GET','POST'])
+@main.route('/upvote/<int:id>',methods=['GET','POST'])
 
-# def upvote(id):
-#     posts=post.query.get_or_404(id)
-#     if request.args.get("like"):
-#         postes.like = posts.like+1
+def upvote(id):
+    posts=post.query.get_or_404(id)
+    if request.args.get("upvote"):
+        postes.upvote = posts.upvote+1
 
-#         db.session.add(posts)
-#         db.session.commit()
+        db.session.add(posts)
+        db.session.commit()
 
-#         return redirect("/upvote/{post_id}".format(post_id=posts.id))
+        return redirect("/upvote/{post_id}".format(post_id=posts.id))
 
 
-#     title= 'Likes'
-#     return render_template('/index.html',posts=posts, title = title )
+    title= 'Upvotes'
+    return render_template('/index.html',posts=posts, title = title )
 
 
 #The second untested upvote function- Might need Ajax

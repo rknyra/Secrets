@@ -4,7 +4,6 @@ class Config:
     '''
     General configurations (configs) parent class
     '''
-    
     pass 
     
 
