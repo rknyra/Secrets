@@ -2,6 +2,11 @@ from flask import render_template
 from . import main
 from .forms import SecretForm
 
+@main.route('/')
+def index():
+    return render_template('index.html')
+
+
 @main.route('/home')
 def home():
     return render_template('home_page.html')
