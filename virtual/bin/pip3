@@ -1,6 +1,4 @@
-#!/bin/sh
-'''exec' "/home/rknyra/Documents/Moringa School/Secrets/virtual/bin/python" "$0" "$@"
-' '''
+#!/home/moringa/Documents/secrets/Secrets/virtual/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys
