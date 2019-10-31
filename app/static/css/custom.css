@@ -1,0 +1,36 @@
+body{
+    background-color:black;
+}
+.category{
+    color:white;
+    background-color: transparent;
+    border-color: orangered;
+}
+.category1{
+  color: orangered;
+  text-align: center;
+}
+.tag:link {
+  color:white;
+}
+  
+  /* visited link */
+.tag:visited {
+  color:white;
+}
+  
+  /* mouse over link */
+.tag:hover {
+  color: orange;
+}
+  
+  /* selected link */
+
+.SecretForm input[type=submit], input[type=text] , textarea[name=review] , input[type=submit]{
+  color:white;
+  background-color:transparent;
+  border-color:orangered;
+  cursor: pointer;
+  border-radius: 15px;
+}
+ 
