@@ -1,36 +1,35 @@
-body{
-    background-color:black;
+body {
+    font-size: 3vh;
+    background-color: #000;
 }
-.category{
-    color:white;
-    background-color: transparent;
+.profileDiv{
+    background-color: #F5F5F5;
+    color: orangered;
+    border-radius: 7px;
+    margin-top: 14vh;
+    
+}
+.profPicSize {
+    object-fit: cover;
+    overflow: hidden;
+    display: block;
+  }
+  .profPicSize img{
+    max-width:100%;
+    max-height:100%;
+  }
+  .updateProf{
+      color: orangered;
+  }
+  .updateProf a{
+    /* color: orangered; */
+    color: #000;
+}
+  .profile input{
+    background-color: #000;
     border-color: orangered;
-}
-.category1{
-  color: orangered;
-  text-align: center;
-}
-.tag:link {
-  color:white;
-}
+    color: #fff;
+    margin-top: 3vh;
+    border-radius: 12px;
+  }
   
-  /* visited link */
-.tag:visited {
-  color:white;
-}
-  
-  /* mouse over link */
-.tag:hover {
-  color: orange;
-}
-  
-  /* selected link */
-
-.SecretForm input[type=submit], input[type=text] , textarea[name=review] , input[type=submit]{
-  color:white;
-  background-color:transparent;
-  border-color:orangered;
-  cursor: pointer;
-  border-radius: 15px;
-}
- 
