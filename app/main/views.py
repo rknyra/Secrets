@@ -1,7 +1,7 @@
-
 from flask import render_template,redirect,url_for,request,abort
-from . import main
 
+from . import main
+from .forms import SecretForm
 
 
     #Tested upvote function 
@@ -51,31 +51,22 @@ def upvote(id):
 
 @main.route('/')
 def index():
-    
-    
-    
     return render_template('index.html')
 
 
-# user profile page
-@main.route('/user')
-def profile():
-  
+@main.route('/home')
+def home():
+    return render_template('home_page.html')
 
-    title = 'Secrets: myProfile'
-    return render_template("profile/profile.html", title=title)
+@main.route("/post")
+def post():
+    return render_template('secret.html')
 
+@main.route("/post/new", methods=['GET','POST'])
+def new_post():
+    form= SecretForm()
 
-# update profile page - update user bio
-@main.route('/user/update')
-# @login_required
-def update_profile():
-    
-    
-    
-    
-    title = 'Secrets'
-    return render_template('profile/update.html', title=title)
+    return render_template('new_secret.html',title='New post', form=form)
 
 # update prof pic
 @main.route('/user/update/pic')
