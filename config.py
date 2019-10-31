@@ -4,7 +4,8 @@ class Config:
     '''
     General configurations (configs) parent class
     '''
-    pass 
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:dan@localhost/secrets'
     
 
 class ProdConfig(Config):
