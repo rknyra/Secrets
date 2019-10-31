@@ -4,14 +4,10 @@ from .forms import SecretForm
 
 @main.route('/home')
 def home():
-    
-    
-    
     return render_template('home_page.html')
 
 @main.route("/post")
 def post():
-    
     return render_template('secret.html')
 
 @main.route("/post/new", methods=['GET','POST'])

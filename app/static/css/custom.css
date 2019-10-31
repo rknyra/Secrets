@@ -10,33 +10,27 @@ body{
   color: orangered;
   text-align: center;
 }
-a:link {
-    color:white;
-  }
+.tag:link {
+  color:white;
+}
   
   /* visited link */
-  a:visited {
-    color:white;
-  }
+.tag:visited {
+  color:white;
+}
   
   /* mouse over link */
-  a:hover {
-    color: orange;
-  }
+.tag:hover {
+  color: orange;
+}
   
   /* selected link */
-  a:active {
-    color: blue;
-  }
-  .SecretForm input[type=submit], input[type=text] , textarea[name=review] , input[type=submit]{
-    color:white;
-    background-color:transparent;
-    border-color:orangered;
-    cursor: pointer;
-    border-radius: 15px;
-  }
-  .SecretForm input[type=submit] :hover{
-    background-color: orangered;
-  }
 
+.SecretForm input[type=submit], input[type=text] , textarea[name=review] , input[type=submit]{
+  color:white;
+  background-color:transparent;
+  border-color:orangered;
+  cursor: pointer;
+  border-radius: 15px;
+}
  
