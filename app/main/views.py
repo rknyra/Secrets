@@ -1,8 +1,48 @@
 from flask import render_template,redirect,url_for,request,abort
-
 from . import main
 from .forms import SecretForm
+from flask_login import login_required, current_user
 
+
+
+@main.route('/')
+def index():
+    return render_template('index.html')
+
+
+@main.route('/home')
+@login_required
+def home():
+    return render_template('home_page.html')
+
+@main.route("/post")
+def post():
+    return render_template('secret.html')
+
+
+@main.route("/post/new", methods=['GET','POST'])
+def new_post():
+    form= SecretForm()
+
+    return render_template('new_secret.html',title='New post', form=form)
+
+
+# user profile page
+@main.route('/user')
+def profile():
+
+
+    title = 'Secrets: myProfile'
+    return render_template("profile/profile.html", title=title)
+
+
+# update prof pic
+@main.route('/user/update/pic')
+@login_required
+def update_pic():
+    
+    title = 'Secrets: myProfile'
+    return render_template("profile/profile.html", title=title)
 
     #Tested upvote function 
 
@@ -46,33 +86,3 @@ def upvote(id):
 #     query = models.Post.update(upvotes = (post.upvotes+1)).where(models.Post.id == post_id)
 #     query.execute()
 #     return redirect(url_for('index'))
-
-
-
-@main.route('/')
-def index():
-    return render_template('index.html')
-
-
-@main.route('/home')
-def home():
-    return render_template('home_page.html')
-
-@main.route("/post")
-def post():
-    return render_template('secret.html')
-
-@main.route("/post/new", methods=['GET','POST'])
-def new_post():
-    form= SecretForm()
-
-    return render_template('new_secret.html',title='New post', form=form)
-
-# update prof pic
-@main.route('/user/update/pic')
-# @login_required
-def update_pic():
-    
-    title = 'Secrets: myProfile'
-    return render_template("profile/profile.html", title=title)
-
