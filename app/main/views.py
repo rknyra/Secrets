@@ -1,7 +1,9 @@
 from flask import render_template,redirect,url_for,request,abort
 from . import main
-from .forms import SecretForm
+from ..models import User, Category, Post, Comment
+from .forms import SecretForm, UpdateProfile
 from flask_login import login_required, current_user
+from .. import db, photos
 
 
 
@@ -28,24 +30,51 @@ def new_post():
 
 
 # user profile page
-@main.route('/user')
-def profile():
+@main.route('/user/<uname>')
+def profile(uname):
+    user = User.query.filter_by(username = uname).first()
 
+    if user is None:
+        abort(404)
 
     title = 'Secrets: myProfile'
-    return render_template("profile/profile.html", title=title)
+    return render_template("profile/profile.html", title=title, user=user)
 
+# update profile page - update user bio
+@main.route('/user/<uname>/update',methods = ['GET','POST'])
+@login_required
+def update_profile(uname):
+    user = User.query.filter_by(username = uname).first()
+    if user is None:
+        abort(404)
+
+    form = UpdateProfile()
+
+    if form.validate_on_submit():
+        user.bio = form.bio.data
+
+        db.session.add(user)
+        db.session.commit()
+
+        return redirect(url_for('.profile',uname=user.username))
+    
+    title = 'Insights Today'
+    return render_template('profile/update.html',form =form, user=user, title=title)
 
 # update prof pic
-@main.route('/user/update/pic')
+@main.route('/user/<uname>/update/pic',methods= ['POST'])
 @login_required
-def update_pic():
-    
-    title = 'Secrets: myProfile'
-    return render_template("profile/profile.html", title=title)
+def update_pic(uname):
+    user = User.query.filter_by(username = uname).first()
+    if 'photo' in request.files:
+        filename = photos.save(request.files['photo'])
+        path = f'photos/{filename}'
+        user.profile_pic_path = path
+        db.session.commit()
+    return redirect(url_for('main.profile',uname=uname))
 
-    #Tested upvote function 
 
+#Tested upvote function 
 @main.route('/upvote/<int:id>',methods=['GET','POST'])
 
 def upvote(id):

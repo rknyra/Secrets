@@ -5,6 +5,22 @@ body{
     overflow: hidden;
     font-size: 3vh;
 }
+.register, .login {
+  margin-top: 10vh;
+  color: white;
+}
+.RegistrationForm, .LoginForm input[type=password], input[type=submit] {
+  color:white;
+  background-color:transparent;
+  border-color:orangered;
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+.home {
+  margin-top: 10vh;
+}
+
 .category{
     color:white;
     background-color: transparent;
@@ -25,12 +41,12 @@ body{
   
   /* mouse over link */
 .tag:hover {
-  color: orange;
+  color: orangered;
 }
 
 .profileDiv{
-    background-color: #F5F5F5;
-    color: orangered;
+    background-color: #fdf0e4;
+    color: #333;
     border-radius: 7px;
     margin-top: 14vh;
     
@@ -40,27 +56,40 @@ body{
     overflow: hidden;
     display: block;
   }
-  .profPicSize img{
+.profPicSize img{
     max-width:100%;
     max-height:100%;
   }
-  .updateProf{
-      color: orangered;
-  }
-  .updateProf a{
-    color: #000;
-
+.updateProf{
+    color: orangered;
 }
-  .profile input[type=submit], input[type=file]{
-    background-color: transparent;
-    border-color: orangered;
-    color: #000;
-    margin-top: 3vh;
-    border-radius: 12px;
-  }
+.updateProf a{
+  color: orangered;
+  text-decoration: underline;
+}
+.updateProf a:hover {
+  color: orangered;
+  text-decoration: underline;
+}
+
+.profile input[type=file]{
+  background-color: transparent;
+  border-color: orangered;
+  color: #000;
+  margin-top: 3vh;
+  border-radius: 12px;
+  padding: 0rem;
+}
+.profile input[type=submit]{
+  background-color: transparent;
+  border-color: orangered;
+  color: #000;
+  margin-top: 1vh;
+  border-radius: 20px;
+}
   
   /* selected link */
-.SecretForm input[type=submit], input[type=text] , textarea[name=review] , input[type=submit]{
+.SecretForm input[type=submit], input[type=text] , textarea[name=review]{
   color:white;
   background-color:transparent;
   border-color:orangered;
@@ -118,7 +147,6 @@ h1 span {
       opacity: 1;
       transform: rotateY(0deg);
       filter: blur(0);
-      
   }
 }
 h1 span:nth-child(1){
