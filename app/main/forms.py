@@ -4,8 +4,8 @@ from wtforms.validators import Required
 from wtforms import ValidationError
 
 class SecretForm(FlaskForm):
-    title = StringField('title',validators=[Required()])
-    review = TextAreaField('Secret', validators=[Required()])
+    title = StringField('Title',validators=[Required()])
+    post = TextAreaField('Secret', validators=[Required()])
     submit = SubmitField('Submit')
  
     

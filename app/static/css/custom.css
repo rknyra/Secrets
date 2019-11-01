@@ -87,6 +87,63 @@ body{
   margin-top: 1vh;
   border-radius: 20px;
 }
+
+.post {
+  color: orangered;
+}
+
+.secretsDisplay {
+  margin-top: 7vh;
+}
+
+.article-title {
+  color: orangered;
+}
+
+a.article-title:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.article-content {
+  white-space: pre-line;
+}
+
+.article-img {
+  height: 65px;
+  width: 65px;
+  margin-right: 16px;
+}
+
+.article-metadata {
+  padding-bottom: 1px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid #e3e3e3
+}
+
+.article-metadata a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.article-svg {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+}
+
+.userBioData {
+  color: orangered;
+}
+.updatebio textarea{
+  background-color: transparent;
+  border-color: orangered;
+  color: #000;
+  border-radius: 20px;
+}
+.updatebio input[type=submit]{
+  color: #fff;
+}
   
   /* selected link */
 .SecretForm input[type=submit], input[type=text] , textarea[name=review]{
@@ -130,7 +187,7 @@ h1{
 }
 h1 span {
   opacity: 0;
-  color: #f8ef47;
+  color: orangered;
   display: inline-block;
   animation: animate 1s linear forwards;
 }

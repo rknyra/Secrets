@@ -1,6 +1,6 @@
-from flask import render_template,redirect,url_for,request,abort
+from flask import render_template,redirect,url_for,request,abort,flash
 from . import main
-from ..models import User, Category, Post, Comment
+from ..models import User, Post, Comment,Category
 from .forms import SecretForm, UpdateProfile
 from flask_login import login_required, current_user
 from .. import db, photos
@@ -15,18 +15,81 @@ def index():
 @main.route('/home')
 @login_required
 def home():
-    return render_template('home_page.html')
+    
+    categories = Category.get_categories()
+    title = 'posts'
+    print(categories)
+    return render_template('home_page.html',categories=categories,title=title)
+
+
+@main.route('/categories/<int:id>')
+def post_types(id):
+    category = Category.query.get(id)
+    title = f'{category.name} posts'
+    posts = Post.get_posts(category.id)
+    
+    return render_template('secrets.html',title=title,category=category,posts=posts,user=current_user)
 
 @main.route("/post")
 def post():
-    return render_template('secret.html')
+    return render_template('secrets.html')
 
 
-@main.route("/post/new", methods=['GET','POST'])
-def new_post():
-    form= SecretForm()
+@main.route('/category/post/new/<int:id>', methods=["GET", "POST"])
+@login_required
+def post_new(id):
+    '''
+    view function that helps renders the form to create a new post
+    '''
+    form = SecretForm()
+    categories = Category.query.filter_by(id=id).first()
+    if form.validate_on_submit():
+        post = form.post.data
+        title = form.title.data
+        new_post = Post(category_id=categories.id, title=title, post=post, user=current_user)
+        new_post.save_post()
+        return redirect(url_for('.post_types', id=categories.id))
+    
+    title = f'{categories.name} posts'
+    return render_template('new_secret.html', title=title, post_form=form, categories=categories)
 
-    return render_template('new_secret.html',title='New post', form=form)
+@main.route("/post/<int:post_id>/update", methods=['GET', 'POST'])
+@login_required
+def update_post(post_id):
+
+    post = Post.query.get_or_404(post_id)
+    
+    if post.user != current_user:
+        abort(403)
+    form = SecretForm()
+    categories = Category.query.filter_by(id=post_id).first()
+    if form.validate_on_submit():
+        post.title = form.title.data
+        post.post = form.post.data
+        new_post = Post(category_id=categories.id, title=post.title, post=post.post, user=current_user)
+        new_post.save_post()
+        
+        print(post)
+        flash('Post updated!', 'success')
+        return redirect(url_for('.post_types',id=categories.id))
+    elif request.method == 'GET':
+        form.title.data = post.title
+        form.post.data = post.post
+    return render_template('new_secret.html', title='Update Post',
+                           form=form, legend='Update Post', post_form=form,categories=categories)
+    
+    
+@main.route("/post/<int:post_id>/delete", methods=['POST'])
+@login_required
+def delete_post(post_id):
+    
+    post = Post.query.get(post_id)
+    if post.user != current_user:
+        abort(403)
+    db.session.delete(post)
+    db.session.commit()
+    flash('Post deleted!', 'success')
+    return redirect(url_for('main.home'))
 
 
 # user profile page
@@ -78,7 +141,7 @@ def update_pic(uname):
 @main.route('/upvote/<int:id>',methods=['GET','POST'])
 
 def upvote(id):
-    posts=post.query.get_or_404(id)
+    posts=Post.query.get_or_404(id)
     if request.args.get("upvote"):
         postes.upvote = posts.upvote+1
 
