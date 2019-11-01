@@ -1,0 +1,250 @@
+body{
+    background-color: black;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-size: 3vh;
+}
+.register, .login {
+  margin-top: 10vh;
+  color: white;
+}
+.RegistrationForm, .LoginForm input[type=password], input[type=submit] {
+  color:white;
+  background-color:transparent;
+  border-color:orangered;
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+.home {
+  margin-top: 10vh;
+}
+
+.category{
+    color:white;
+    background-color: transparent;
+    border-color: orangered;
+}
+.category1{
+  color: orangered;
+  text-align: center;
+}
+.tag:link {
+  color:white;
+} 
+  
+  /* visited link */
+.tag:visited {
+  color:white;
+} 
+  
+  /* mouse over link */
+.tag:hover {
+  color: orangered;
+}
+
+.profileDiv{
+    background-color: #fdf0e4;
+    color: #333;
+    border-radius: 7px;
+    margin-top: 14vh;
+    
+}
+.profPicSize {
+    object-fit: cover;
+    overflow: hidden;
+    display: block;
+  }
+.profPicSize img{
+    max-width:100%;
+    max-height:100%;
+  }
+.updateProf{
+    color: orangered;
+}
+.updateProf a{
+  color: orangered;
+  text-decoration: underline;
+}
+.updateProf a:hover {
+  color: orangered;
+  text-decoration: underline;
+}
+
+.profile input[type=file]{
+  background-color: transparent;
+  border-color: orangered;
+  color: #000;
+  margin-top: 3vh;
+  border-radius: 12px;
+  padding: 0rem;
+}
+.profile input[type=submit]{
+  background-color: transparent;
+  border-color: orangered;
+  color: #000;
+  margin-top: 1vh;
+  border-radius: 20px;
+}
+
+.post {
+  color: orangered;
+}
+
+.secretsDisplay {
+  margin-top: 7vh;
+}
+
+.article-title {
+  color: orangered;
+}
+
+a.article-title:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.article-content {
+  white-space: pre-line;
+}
+
+.article-img {
+  height: 65px;
+  width: 65px;
+  margin-right: 16px;
+}
+
+.article-metadata {
+  padding-bottom: 1px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid #e3e3e3
+}
+
+.article-metadata a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.article-svg {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+}
+
+.userBioData {
+  color: orangered;
+}
+.updatebio textarea{
+  background-color: transparent;
+  border-color: orangered;
+  color: #000;
+  border-radius: 20px;
+}
+.updatebio input[type=submit]{
+  color: #fff;
+}
+  
+  /* selected link */
+.SecretForm input[type=submit], input[type=text] , textarea[name=review]{
+  color:white;
+  background-color:transparent;
+  border-color:orangered;
+  cursor: pointer;
+  border-radius: 15px;
+}
+/* video-------------------------------------------------------------------- */
+section{
+  height: 100vh;
+  background: #000;
+}
+section:before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, #f00,#f00,#0f0,#0ff,#ff0,#0ff);
+  mix-blend-mode: color ;
+  pointer-events: none;
+} 
+video{
+  object-fit: cover;
+}
+h1{
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  text-align: center;
+  color: #ddd;
+  font-size: 5em;
+  font-family: sans-serif;
+  letter-spacing: 0.2em;
+}
+h1 span {
+  opacity: 0;
+  color: orangered;
+  display: inline-block;
+  animation: animate 1s linear forwards;
+}
+@keyframes animate
+{
+  0%
+  {
+      opacity: 0;
+      transform: rotateY(90deg);
+      filter: blur(10px);
+  }
+  100%
+  {
+      opacity: 1;
+      transform: rotateY(0deg);
+      filter: blur(0);
+  }
+}
+h1 span:nth-child(1){
+  animation-delay: 1s;
+}
+h1 span:nth-child(2){
+  animation-delay: 2s;
+}
+h1 span:nth-child(3){
+  animation-delay: 2.5s;
+}
+h1 span:nth-child(4){
+  animation-delay: 3s;
+}
+h1 span:nth-child(5){
+  animation-delay: 3.5s;
+}
+h1 span:nth-child(6){
+  animation-delay: 3.75s;
+}
+h1 span:nth-child(7){
+  animation-delay: 4s;
+}  
+.bg-steel {
+  background-color: #000;
+}
+
+.site-header .navbar-nav .nav-link {
+  color: orangered;
+}
+.navbar-dark .navbar-nav .nav-link {
+  color: orangered;
+}
+
+.site-header .navbar-nav .nav-link:hover {
+  color: #ffffff;
+}
+
+.site-header .navbar-nav .nav-link.active {
+  font-weight: 500;
+}
+.navbar-dark .navbar-brand {
+  color: orangered;
+}

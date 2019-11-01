@@ -1,0 +1,39 @@
+{% extends 'base.html' %} {% import 'bootstrap/wtf.html' as wtf %} {% block
+    content %}
+    
+    <div class="homeDiv">
+      <div class="row justify-content-center register">
+        <div class="col-md-8">
+          <div class="row profile">
+            <!--Display profile photo-->
+            <div class="col-md-4 profPicSize">
+              {% if user.profile_pic_path %}
+              <img
+                src="{{url_for('static',filename=user.profile_pic_path)}}"
+                alt=""
+                class="img-thumbnail rounded-circle"
+              />
+              {%else%}
+              <img
+                class="img-thumbnail"
+                style="background-color: transparent; border: none;"
+                src="{{url_for('static',filename='images/defaultProfPic.png')}}"
+                alt="Prof Pic"
+              />
+              {% endif %}
+            </div>
+    
+            <div class="col-md-5 userBioData" style="color: orangered;" >
+              <!-- displaying username -->
+    
+              <h3>{{ user.username | capitalize }}</h3>
+              <div class="updatebio">
+                {{ wtf.quick_form(form) }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    {% endblock %}
